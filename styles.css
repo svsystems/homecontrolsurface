@@ -36,7 +36,7 @@ time{
   color: rgb(255, 255, 255);
   font-size: 40px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  text-align: center
+  text-align: center;
 }
 
 
@@ -85,4 +85,27 @@ greeting {
 footerp {
   font-size: 15px;
   color: #ffffff;
+}
+
+.navbar {
+  display: block;
+  overflow: hidden;
+  padding: 10px 10px;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 15px;
+  background-color: #000000;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  border-radius: 5px;
+  border: 1px solid #ffffff;
+  margin: 3px;
+  
+  
 }
