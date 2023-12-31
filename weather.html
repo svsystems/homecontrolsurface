@@ -1,0 +1,107 @@
+ <html>
+
+    <head>
+        <link rel="stylesheet" href="styles.css">
+        <title>Controller</title>
+    </head>
+
+
+    <body>
+
+        <div class="border">
+
+            <time id="currentTime"></time>
+            <greeting id="greeting"></greeting>
+            <hr class="center-hr">
+
+
+            <div class="navbar">
+                <a href="index.html">LIGHTS</a>
+                <a href="weather.html">WEATHER</a>
+                <a href="ADMIN.html">ADMIN</a>
+            </div>
+
+
+            <a class="weatherwidget-io" href="https://forecast7.com/en/52d135d29/netherlands/" data-label_1="NETHERLANDS" data-label_2="WEATHER" data-font="Verdana" data-icons="Climacons Animated" data-theme="weather_one" >NETHERLANDS WEATHER</a>
+            <a class="weatherwidget-io" href="https://forecast7.com/en/51d503d61/middelburg/" data-label_1="MIDDELBURG" data-label_2="WEATHER" data-font="Verdana" data-icons="Climacons Animated" data-theme="weather_one" >MIDDELBURG WEATHER</a>
+            <iframe width="100%" height="500" src="https://embed.windy.com/embed2.html?lat=52.119&lon=5.485&detailLat=51.490&detailLon=3.599&width=800&height=450&zoom=7&level=surface&overlay=rain&product=ecmwf&menu=&message=true&marker=&calendar=now&pressure=true&type=map&location=coordinates&detail=&metricWind=m%2Fs&metricTemp=%C2%B0C&radarRange=-1" frameborder="0"></iframe>
+
+        </div>
+
+
+    </body>
+</html>
+
+
+
+<script>
+
+    
+    function updateCurrentTime() {
+        var currentTimeElement = document.getElementById('currentTime');
+        var currentTime = new Date();
+        var hours = currentTime.getHours();
+        var minutes = currentTime.getMinutes();
+        var seconds = currentTime.getSeconds();
+
+
+        hours = (hours < 10 ? "0" : "") + hours;
+        minutes = (minutes < 10 ? "0" : "") + minutes;
+        seconds = (seconds < 10 ? "0" : "") + seconds;
+
+
+        var formattedTime = hours + ":" + minutes + ":" + seconds;
+
+
+        currentTimeElement.innerHTML = formattedTime;
+        
+    }
+    
+    setInterval(updateCurrentTime, 1000);
+    updateCurrentTime();
+
+    //welcome greeting tyme system
+    function getGreeting() {
+        var currentTime = new Date();
+        var options = { timeZone: 'Europe/Amsterdam', hour: 'numeric', minute: 'numeric' };
+        var timeString = currentTime.toLocaleTimeString('en-US', options);
+
+        var greeting;
+
+        if (currentTime.getHours() < 3) {
+            greeting = "Good evening";
+        } else if (currentTime.getHours() < 12) {
+            greeting = "Good morning";
+        } else {
+            greeting = "Good afternoon";
+        }
+
+        // Update the HTML content
+        document.getElementById('greeting').innerHTML = greeting;
+    }
+
+
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+
+
+
+
+
+
+
+    //get time when opening
+    window.onload = getGreeting;
+    setInterval(getGreeting, 300000);
+
+
+
+    //footer names sv
+    </script>
+    <div class="footer">
+        <footerp>MediaFox - SVSystems - SV-ICT</footerp>
+        <footerp>-- INTERNAL USE ONLY --</footerp>
+    </div>
+
+</script>
